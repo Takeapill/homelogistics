@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace homelogistics
 {
-  public partial class Form1 : Form
+  public partial class FrmTachesPerso : Form
   {
-    public Form1()
+    static public FrmTachesPerso instance;
+    private FrmTachesPerso()
     {
       InitializeComponent();
     }
+
+    static public FrmTachesPerso getInstance()
+    {
+      if (instance == null)
+      {
+        instance = new FrmTachesPerso();
+      }
+      return instance;
+    } 
   }
 }
