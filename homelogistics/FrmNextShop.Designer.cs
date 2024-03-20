@@ -36,6 +36,7 @@
       this.btnAll = new System.Windows.Forms.Button();
       this.lblTextDate = new System.Windows.Forms.Label();
       this.lblDate = new System.Windows.Forms.Label();
+      this.btnDone = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.dgvTaches)).BeginInit();
       this.SuspendLayout();
       // 
@@ -48,13 +49,13 @@
             this.num,
             this.nom,
             this.Acheté});
-      this.dgvTaches.Dock = System.Windows.Forms.DockStyle.Bottom;
       this.dgvTaches.Location = new System.Drawing.Point(20, 122);
       this.dgvTaches.Name = "dgvTaches";
       this.dgvTaches.ReadOnly = true;
-      this.dgvTaches.Size = new System.Drawing.Size(494, 519);
+      this.dgvTaches.Size = new System.Drawing.Size(494, 490);
       this.dgvTaches.TabIndex = 0;
       this.dgvTaches.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaches_CellClick);
+      this.dgvTaches.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaches_CellContentClick);
       // 
       // num
       // 
@@ -121,12 +122,24 @@
       this.lblDate.Size = new System.Drawing.Size(0, 21);
       this.lblDate.TabIndex = 7;
       // 
-      // FrmProCourses
+      // btnDone
+      // 
+      this.btnDone.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.btnDone.Location = new System.Drawing.Point(20, 618);
+      this.btnDone.Name = "btnDone";
+      this.btnDone.Size = new System.Drawing.Size(494, 23);
+      this.btnDone.TabIndex = 8;
+      this.btnDone.Text = "J\'ai fais les courses!";
+      this.btnDone.UseVisualStyleBackColor = true;
+      this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
+      // 
+      // FrmNextShop
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.Thistle;
       this.ClientSize = new System.Drawing.Size(534, 661);
+      this.Controls.Add(this.btnDone);
       this.Controls.Add(this.lblDate);
       this.Controls.Add(this.lblTextDate);
       this.Controls.Add(this.btnAll);
@@ -136,7 +149,7 @@
       this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
       this.MaximumSize = new System.Drawing.Size(550, 700);
       this.MinimumSize = new System.Drawing.Size(550, 700);
-      this.Name = "FrmProCourses";
+      this.Name = "FrmNextShop";
       this.Padding = new System.Windows.Forms.Padding(20);
       this.Text = "Tâches";
       this.Load += new System.EventHandler(this.FrmNextShop_Load);
@@ -156,5 +169,6 @@
     private System.Windows.Forms.DataGridViewCheckBoxColumn Acheté;
     private System.Windows.Forms.Label lblTextDate;
     private System.Windows.Forms.Label lblDate;
+    private System.Windows.Forms.Button btnDone;
   }
 }

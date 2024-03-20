@@ -49,6 +49,7 @@
       this.dgvParticipants.ReadOnly = true;
       this.dgvParticipants.Size = new System.Drawing.Size(320, 402);
       this.dgvParticipants.TabIndex = 0;
+      this.dgvParticipants.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParticipants_CellContentClick);
       // 
       // Nom
       // 

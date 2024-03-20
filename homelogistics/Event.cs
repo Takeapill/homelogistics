@@ -6,14 +6,14 @@ namespace homelogistics
 {
   internal class Event
   {
-    public int ID { get; set; }
-    public string Title { get; set; }
-    public string Description { get; set; }
-    public DateTime Date { get; set; }
-    public string Status { get; set; }
-    private List<int> participants = new List<int>();
+    internal int ID { get; set; }
+    internal string Title { get; set; }
+    internal string Description { get; set; }
+    internal DateTime Date { get; set; }
+    internal string Status { get; set; }
+    internal List<int> participants = new List<int>();
 
-    public Event(string title, string description, DateTime date, string status, List<int> participants)
+    internal Event(string title, string description, DateTime date, string status, List<int> participants)
     {
       Title = title;
       Description = description;
@@ -25,7 +25,7 @@ namespace homelogistics
   internal class Task : Event
   {
     private static int nextId = 0;
-    public Task(string title, string description, DateTime date, string status, List<int> participants)
+    internal Task(string title, string description, DateTime date, string status, List<int> participants)
       : base(title, description, date, status, participants)
     {
       ID = nextId;
@@ -35,7 +35,7 @@ namespace homelogistics
   internal class Meal : Event
   {
     private static int nextId = 0;
-    public Meal(string title, string description, DateTime date, string status, List<int> participants)
+    internal Meal(string title, string description, DateTime date, string status, List<int> participants)
       : base(title, description, date, status, participants)
     {
       ID = nextId;
@@ -47,7 +47,7 @@ namespace homelogistics
     private static int nextId = 0;
     private int Quantity { get; set; }
     private string Unit { get; set; }
-    public ShopItem(string title, string description, DateTime date, int quantity, string unit, List<int> participants)
+    internal ShopItem(string title, string description, DateTime date, int quantity, string unit, List<int> participants)
       : base(title, description, date, "Pending", participants)
     {
       ID = nextId;
@@ -56,14 +56,15 @@ namespace homelogistics
       Unit = unit;
     }
 
-    public string GetUnitQty()
+    internal string GetUnitQty()
     {
       return Quantity + Unit;
     } 
   }
   internal class EventFactory
   {
-    public static Event CreateEvent(string type, string title, string description, DateTime date, string status = "Pending", List<int> participants = null, int quantity = 0, string unit = " ")
+    static List<int> p = new List<int> { 1, 2, 3, 4 };
+    internal static Event CreateEvent(string type, string title, string description, DateTime date, List<int> participants, string status = "Pending", int quantity = 0, string unit = " ")
     {
       switch (type)
       {
@@ -80,18 +81,19 @@ namespace homelogistics
   }
   internal class EventList
   {
+    private List<int> p = new List<int> { 1, 2, 3, 4 };
     private static EventList instance;
-    public List<Event> Events { get; } = new List<Event>();
-    public List<Task> Tasks { get; } = new List<Task>();
-    public List<Meal> Meals { get; } = new List<Meal>();
-    public List<ShopItem> ShopItems { get; } = new List<ShopItem>();
+    internal List<Event> Events { get; } = new List<Event>();
+    internal List<Task> Tasks { get; } = new List<Task>();
+    internal List<Meal> Meals { get; } = new List<Meal>();
+    internal List<ShopItem> ShopItems { get; } = new List<ShopItem>();
 
     private EventList()
     {
       LoadTasks();
     }
 
-    public static EventList GetInstance()
+    internal static EventList GetInstance()
     {
       if (instance == null)
       {
@@ -104,20 +106,20 @@ namespace homelogistics
     {
       Events.Clear();
 
-      Events.Add(EventFactory.CreateEvent("Task", "Wash the car", "Washing the car is not fun", DateTime.Now.AddDays(1)));
-      Events.Add(EventFactory.CreateEvent("Task", "Buy groceries", "Go check the incredible shopping list in the app", DateTime.Now.AddDays(2)));
-      Events.Add(EventFactory.CreateEvent("Task", "Pay the bills", "You don't have any more money hihi", DateTime.Now.AddDays(3)));
-      Events.Add(EventFactory.CreateEvent("Task", "Call the plumber", "Don't **** the plumber", DateTime.Now.AddDays(4)));
+      Events.Add(EventFactory.CreateEvent("Task", "Wash the car", "Washing the car is not fun", DateTime.Now.AddDays(1), p));
+      Events.Add(EventFactory.CreateEvent("Task", "Buy groceries", "Go check the incredible shopping list in the app", DateTime.Now.AddDays(2), p));
+      Events.Add(EventFactory.CreateEvent("Task", "Pay the bills", "You don't have any more money hihi", DateTime.Now.AddDays(3), p));
+      Events.Add(EventFactory.CreateEvent("Task", "Call the plumber", "Don't **** the plumber", DateTime.Now.AddDays(4), p));
 
-      Events.Add(EventFactory.CreateEvent("Meal", "Lunch", "Kinders", DateTime.Now.AddDays(1)));
-      Events.Add(EventFactory.CreateEvent("Meal", "Dinner", "Kinders", DateTime.Now.AddDays(1)));
-      Events.Add(EventFactory.CreateEvent("Meal", "Lunch", "Kinders", DateTime.Now.AddDays(2)));
-      Events.Add(EventFactory.CreateEvent("Meal", "Dinner", "Kinders", DateTime.Now.AddDays(2)));
+      Events.Add(EventFactory.CreateEvent("Meal", "Lunch", "Kinders", DateTime.Now.AddDays(1), p));
+      Events.Add(EventFactory.CreateEvent("Meal", "Dinner", "Kinders", DateTime.Now.AddDays(1), p));
+      Events.Add(EventFactory.CreateEvent("Meal", "Lunch", "Kinders", DateTime.Now.AddDays(2), p));
+      Events.Add(EventFactory.CreateEvent("Meal", "Dinner", "Kinders", DateTime.Now.AddDays(2), p));
 
-      Events.Add(EventFactory.CreateEvent("ShopItem", "Milk", "Lorem Ipsum", DateTime.Now.AddDays(1), "", null, 2, "L"));
-      Events.Add(EventFactory.CreateEvent("ShopItem", "Bread", "Lorem Ipsum", DateTime.Now.AddDays(1), "", null, 1, "U"));
-      Events.Add(EventFactory.CreateEvent("ShopItem", "Eggs", "Lorem Ipsum", DateTime.Now.AddDays(2), "", null, 6, "U"));
-      Events.Add(EventFactory.CreateEvent("ShopItem", "Butter", "Lorem Ipsum", DateTime.Now.AddDays(3), "", null, 1, "U"));
+      Events.Add(EventFactory.CreateEvent("ShopItem", "Milk", "Lorem Ipsum", DateTime.Now.AddDays(1), p, "", 2, "L"));
+      Events.Add(EventFactory.CreateEvent("ShopItem", "Bread", "Lorem Ipsum", DateTime.Now.AddDays(1), p, "", 1, "U"));
+      Events.Add(EventFactory.CreateEvent("ShopItem", "Eggs", "Lorem Ipsum", DateTime.Now.AddDays(2), p, "", 6, "U"));
+      Events.Add(EventFactory.CreateEvent("ShopItem", "Butter", "Lorem Ipsum", DateTime.Now.AddDays(3), p, "", 1, "U"));
 
       foreach (Event e in Events)
       {
@@ -135,11 +137,12 @@ namespace homelogistics
         }
       }
     }
-    public List<ShopItem> GetNextShoppingList()
+    internal List<ShopItem> GetNextShoppingList()
     {
       DateTime nextDate = DateTime.MaxValue;
       foreach (ShopItem shopItem in ShopItems)
       {
+        if (shopItem.Status == "Done") continue;
         if (shopItem.Date.Date >= DateTime.Today && shopItem.Date.Date < nextDate)
         {
           nextDate = shopItem.Date.Date;
@@ -149,8 +152,15 @@ namespace homelogistics
       return ShopItems.Where(s => s.Date.Date == nextDate).ToList();
     }
 
-    public List<Event> GetUserEvents(int id)
+    internal List<Event> GetUserEvents(int id)
     {
+      foreach (Event ev in Events)
+      {
+        if (ev.participants.Contains(id))
+        {
+          return Events.Where(e => e.participants.Contains(id)).ToList();
+        }
+      } 
       return null;
     }
   }

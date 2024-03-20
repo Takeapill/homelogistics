@@ -4,16 +4,16 @@ using System.Windows.Forms;
 
 namespace homelogistics
 {
-  public partial class FrmNextShop : Form
+  internal partial class FrmNextShop : Form
   {
-    public static FrmNextShop instance;
+    internal static FrmNextShop instance;
     private List<ShopItem> shoppingList = EventList.GetInstance().GetNextShoppingList();
     private FrmNextShop()
     {
       InitializeComponent();
     }
 
-    public static FrmNextShop getInstance()
+    internal static FrmNextShop getInstance()
     {
       if (instance == null || instance.IsDisposed)
       {
@@ -24,6 +24,7 @@ namespace homelogistics
 
     private void FrmNextShop_Load(object sender, EventArgs e)
     {
+      shoppingList = EventList.GetInstance().GetNextShoppingList();
       lblDate.Text = shoppingList[0].Date.ToString("dd/MM/yyyy");
       foreach (ShopItem item in shoppingList)
       {
@@ -50,10 +51,36 @@ namespace homelogistics
       }
       else if (e.ColumnIndex == 2)
       {
-        shoppingList[e.RowIndex].Status = "Done";
-        dgvTaches.Rows.Clear();
-        FrmNextShop_Load(sender, e);
       }
+    }
+
+    private void dgvTaches_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    {
+
+      if (e.ColumnIndex == 2)
+      {
+        if (dgvTaches.Rows[e.RowIndex].Cells[2].Value == null)
+        {
+          dgvTaches.Rows[e.RowIndex].Cells[2].Value = true;
+        }
+        else
+        {
+          dgvTaches.Rows[e.RowIndex].Cells[2].Value = !(bool)dgvTaches.Rows[e.RowIndex].Cells[2].Value;
+        }
+      } 
+    }
+
+    private void btnDone_Click(object sender, EventArgs e)
+    {
+      foreach (DataGridViewRow row in dgvTaches.Rows)
+      {
+        if (row.Cells[2].Value != null && (bool)row.Cells[2].Value)
+        {
+          shoppingList[row.Index].Status = "Done";
+        }
+      }
+      dgvTaches.Rows.Clear();
+      FrmNextShop_Load(sender, e);
     }
   }
 }

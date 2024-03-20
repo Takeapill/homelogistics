@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,10 +10,14 @@ namespace homelogistics
   internal class Family
   {
     private static Family instance;
-    private List<FamilyMember> members = new List<FamilyMember>();
+    public List<FamilyMember> members;
     private List<Event> events = EventList.GetInstance().Events;
     int nextId = 1;
-    private Family() {}
+    private Family() 
+    {
+      members = new List<FamilyMember>();
+      LoadFamily();
+    }
 
     public static Family GetInstance()
     {
@@ -30,7 +35,7 @@ namespace homelogistics
       nextId++;
     }
 
-    public FamilyMember GetFamilyMembers(int id)
+    public FamilyMember GetFamilyMemberIDs(int id)
     {
       foreach (FamilyMember member in members)
       {
@@ -41,21 +46,28 @@ namespace homelogistics
       }
       return null;
     }
+    public void LoadFamily()
+    {
+      members.Clear();
+      AddMember("Dad", "Adult");
+      AddMember("Mom", "Adult");
+      AddMember("Son", "Child");
+      AddMember("Daughter", "Child");
+    }
   }
 
   internal class FamilyMember
   {
     internal int id;
-    private string name;
-    private string role;
-    private Family family = Family.GetInstance();
-    private List<Event> events;
+    internal string name;
+    internal string role;
+    internal List<Event> events;
     public FamilyMember(int id, string name, string role)
     {
       this.id = id;
       this.name = name;
       this.role = role;
-      EventList.GetInstance().GetUserEvents(id);
+      this.events = EventList.GetInstance().GetUserEvents(id);
     }
   }
 }
