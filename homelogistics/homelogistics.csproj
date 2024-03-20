@@ -46,25 +46,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Event.cs" />
+    <Compile Include="Family.cs" />
+    <Compile Include="FrmAddEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddEvent.Designer.cs">
+      <DependentUpon>FrmAddEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEventDesc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEventDesc.Designer.cs">
+      <DependentUpon>FrmEventDesc.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEvents.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEvents.Designer.cs">
       <DependentUpon>FrmEvents.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTachesPerso.cs">
+    <Compile Include="FrmParticipants.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTachesPerso.Designer.cs">
-      <DependentUpon>FrmTachesPerso.cs</DependentUpon>
+    <Compile Include="FrmParticipants.Designer.cs">
+      <DependentUpon>FrmParticipants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNextShop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNextShop.Designer.cs">
+      <DependentUpon>FrmNextShop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMeals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMeals.Designer.cs">
+      <DependentUpon>FrmMeals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPersoTasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPersoTasks.Designer.cs">
+      <DependentUpon>FrmPersoTasks.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAddEvent.resx">
+      <DependentUpon>FrmAddEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEventDesc.resx">
+      <DependentUpon>FrmEventDesc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEvents.resx">
       <DependentUpon>FrmEvents.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTachesPerso.resx">
-      <DependentUpon>FrmTachesPerso.cs</DependentUpon>
+    <EmbeddedResource Include="FrmParticipants.resx">
+      <DependentUpon>FrmParticipants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNextShop.resx">
+      <DependentUpon>FrmNextShop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMeals.resx">
+      <DependentUpon>FrmMeals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPersoTasks.resx">
+      <DependentUpon>FrmPersoTasks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

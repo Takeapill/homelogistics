@@ -30,12 +30,12 @@
     {
       this.lblTitre = new System.Windows.Forms.Label();
       this.pnlMenu = new System.Windows.Forms.Panel();
-      this.btnGestion = new System.Windows.Forms.Button();
+      this.btnTaches = new System.Windows.Forms.Button();
       this.btnRepas = new System.Windows.Forms.Button();
       this.btnCourses = new System.Windows.Forms.Button();
       this.btnComm = new System.Windows.Forms.Button();
+      this.btnGestion = new System.Windows.Forms.Button();
       this.cdrEvents = new System.Windows.Forms.MonthCalendar();
-      this.btnTaches = new System.Windows.Forms.Button();
       this.pnlMenu.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -70,23 +70,23 @@
       this.pnlMenu.Size = new System.Drawing.Size(188, 420);
       this.pnlMenu.TabIndex = 6;
       // 
-      // btnGestion
+      // btnTaches
       // 
-      this.btnGestion.BackColor = System.Drawing.Color.LightGray;
-      this.btnGestion.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.btnGestion.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.btnGestion.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-      this.btnGestion.FlatAppearance.BorderSize = 2;
-      this.btnGestion.FlatStyle = System.Windows.Forms.FlatStyle.System;
-      this.btnGestion.Font = new System.Drawing.Font("JetBrainsMono NF ExtraBold", 14F, System.Drawing.FontStyle.Bold);
-      this.btnGestion.Location = new System.Drawing.Point(0, 359);
-      this.btnGestion.Margin = new System.Windows.Forms.Padding(2);
-      this.btnGestion.Name = "btnGestion";
-      this.btnGestion.Padding = new System.Windows.Forms.Padding(10);
-      this.btnGestion.Size = new System.Drawing.Size(188, 61);
-      this.btnGestion.TabIndex = 2;
-      this.btnGestion.Text = "Famille";
-      this.btnGestion.UseVisualStyleBackColor = false;
+      this.btnTaches.BackColor = System.Drawing.Color.LightGray;
+      this.btnTaches.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnTaches.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.btnTaches.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+      this.btnTaches.FlatAppearance.BorderSize = 2;
+      this.btnTaches.FlatStyle = System.Windows.Forms.FlatStyle.System;
+      this.btnTaches.Font = new System.Drawing.Font("JetBrainsMono NF ExtraBold", 14F, System.Drawing.FontStyle.Bold);
+      this.btnTaches.Location = new System.Drawing.Point(0, 115);
+      this.btnTaches.Margin = new System.Windows.Forms.Padding(2);
+      this.btnTaches.Name = "btnTaches";
+      this.btnTaches.Size = new System.Drawing.Size(188, 61);
+      this.btnTaches.TabIndex = 5;
+      this.btnTaches.Text = "Tâches";
+      this.btnTaches.UseVisualStyleBackColor = false;
+      this.btnTaches.Click += new System.EventHandler(this.btnTaches_Click);
       // 
       // btnRepas
       // 
@@ -104,6 +104,7 @@
       this.btnRepas.TabIndex = 1;
       this.btnRepas.Text = "Repas";
       this.btnRepas.UseVisualStyleBackColor = false;
+      this.btnRepas.Click += new System.EventHandler(this.btnRepas_Click);
       // 
       // btnCourses
       // 
@@ -121,6 +122,7 @@
       this.btnCourses.TabIndex = 4;
       this.btnCourses.Text = "Courses";
       this.btnCourses.UseVisualStyleBackColor = false;
+      this.btnCourses.Click += new System.EventHandler(this.btnCourses_Click);
       // 
       // btnComm
       // 
@@ -139,6 +141,24 @@
       this.btnComm.Text = "Communication";
       this.btnComm.UseVisualStyleBackColor = false;
       // 
+      // btnGestion
+      // 
+      this.btnGestion.BackColor = System.Drawing.Color.LightGray;
+      this.btnGestion.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.btnGestion.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.btnGestion.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+      this.btnGestion.FlatAppearance.BorderSize = 2;
+      this.btnGestion.FlatStyle = System.Windows.Forms.FlatStyle.System;
+      this.btnGestion.Font = new System.Drawing.Font("JetBrainsMono NF ExtraBold", 14F, System.Drawing.FontStyle.Bold);
+      this.btnGestion.Location = new System.Drawing.Point(0, 359);
+      this.btnGestion.Margin = new System.Windows.Forms.Padding(2);
+      this.btnGestion.Name = "btnGestion";
+      this.btnGestion.Padding = new System.Windows.Forms.Padding(10);
+      this.btnGestion.Size = new System.Drawing.Size(188, 61);
+      this.btnGestion.TabIndex = 2;
+      this.btnGestion.Text = "Famille";
+      this.btnGestion.UseVisualStyleBackColor = false;
+      // 
       // cdrEvents
       // 
       this.cdrEvents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -150,24 +170,7 @@
       this.cdrEvents.Margin = new System.Windows.Forms.Padding(4);
       this.cdrEvents.Name = "cdrEvents";
       this.cdrEvents.TabIndex = 5;
-      // 
-      // btnTaches
-      // 
-      this.btnTaches.BackColor = System.Drawing.Color.LightGray;
-      this.btnTaches.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.btnTaches.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.btnTaches.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-      this.btnTaches.FlatAppearance.BorderSize = 2;
-      this.btnTaches.FlatStyle = System.Windows.Forms.FlatStyle.System;
-      this.btnTaches.Font = new System.Drawing.Font("JetBrainsMono NF ExtraBold", 14F, System.Drawing.FontStyle.Bold);
-      this.btnTaches.Location = new System.Drawing.Point(0, 115);
-      this.btnTaches.Margin = new System.Windows.Forms.Padding(2);
-      this.btnTaches.Name = "btnTaches";
-      this.btnTaches.Size = new System.Drawing.Size(188, 61);
-      this.btnTaches.TabIndex = 5;
-      this.btnTaches.Text = "Tâches";
-      this.btnTaches.UseVisualStyleBackColor = false;
-      this.btnTaches.Click += new System.EventHandler(this.btnTaches_Click);
+      this.cdrEvents.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.cdrEvents_DateChanged);
       // 
       // FrmEvents
       // 
