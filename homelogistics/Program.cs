@@ -14,6 +14,9 @@ namespace homelogistics
     [STAThread]
     static void Main()
     {
+      Family.GetInstance();
+      EventList.GetInstance();
+      EventList.GetInstance().LoadEvents();
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
       Application.Run(FrmEvents.getInstance());

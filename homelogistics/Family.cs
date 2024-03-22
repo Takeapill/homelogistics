@@ -10,12 +10,12 @@ namespace homelogistics
   internal class Family
   {
     private static Family instance;
-    public List<FamilyMember> members;
-    private List<Event> events = EventList.GetInstance().Events;
+    internal List<FamilyMember> Members { get; private set; }
+    internal FamilyMember CurrentUser { get; set; }
     int nextId = 1;
     private Family() 
     {
-      members = new List<FamilyMember>();
+      Members = new List<FamilyMember>();
       LoadFamily();
     }
 
@@ -31,13 +31,13 @@ namespace homelogistics
     public void AddMember(string name, string role)
     {
       FamilyMember member = new FamilyMember(nextId, name, role);
-      members.Add(member);
+      Members.Add(member);
       nextId++;
     }
 
     public FamilyMember GetFamilyMemberIDs(int id)
     {
-      foreach (FamilyMember member in members)
+      foreach (FamilyMember member in Members)
       {
         if (member.id == id)
         {
@@ -48,11 +48,12 @@ namespace homelogistics
     }
     public void LoadFamily()
     {
-      members.Clear();
+      Members.Clear();
       AddMember("Dad", "Adult");
       AddMember("Mom", "Adult");
       AddMember("Son", "Child");
       AddMember("Daughter", "Child");
+      CurrentUser = Members[1];
     }
   }
 
@@ -61,13 +62,11 @@ namespace homelogistics
     internal int id;
     internal string name;
     internal string role;
-    internal List<Event> events;
     public FamilyMember(int id, string name, string role)
     {
       this.id = id;
       this.name = name;
       this.role = role;
-      this.events = EventList.GetInstance().GetUserEvents(id);
     }
   }
 }

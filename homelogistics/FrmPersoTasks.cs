@@ -8,7 +8,8 @@ namespace homelogistics
   public partial class FrmPersoTasks : Form
   {
     static private FrmPersoTasks instance;
-    private static List<Task> events = EventList.GetInstance().Tasks;
+    private bool showAll = false;
+    private static List<Event> events;
     private FrmPersoTasks()
     {
       InitializeComponent();
@@ -25,6 +26,11 @@ namespace homelogistics
 
     private void FrmPersoTasks_Load(object sender, EventArgs e)
     {
+      btnFilter.Text = showAll ? "Vos tâches" : "Toutes les tâches";
+      lblTasks.Text = showAll ? "Les tâches" : "Vos tâches";
+      dgvTaches.Rows.Clear();
+      events = showAll ? EventList.GetInstance().GetEventsByType(EventType.Task) 
+        : EventList.GetInstance().GetCurrentUserEventsByType(EventType.Task);
       foreach (Event es in events)
       {
         dgvTaches.Rows.Add(es.ID, es.Title, es.Date, es.Status);
@@ -33,9 +39,17 @@ namespace homelogistics
 
     private void dgvTaches_CellClick(object sender, DataGridViewCellEventArgs e)
     {
-      Console.WriteLine(e.RowIndex);
-      FrmEventDesc frmEventDesc = new FrmEventDesc(events[e.RowIndex].Title, events[e.RowIndex].Description, events[e.RowIndex].Date);
-      frmEventDesc.ShowDialog();
+      if (e.RowIndex >= 0)
+      {
+        FrmEventDesc frmEventDesc = new FrmEventDesc(events[e.RowIndex]);
+        frmEventDesc.ShowDialog();
+      }
+    }
+
+    private void btnAll_Click(object sender, EventArgs e)
+    {
+      showAll = !showAll;
+      FrmPersoTasks_Load(sender, e);
     }
   }
 }

@@ -38,7 +38,7 @@
       this.lblStatus = new System.Windows.Forms.Label();
       this.cmbStatus = new System.Windows.Forms.ComboBox();
       this.btnAjouter = new System.Windows.Forms.Button();
-      this.comboBox1 = new System.Windows.Forms.ComboBox();
+      this.cmbType = new System.Windows.Forms.ComboBox();
       this.lblType = new System.Windows.Forms.Label();
       this.btnParticipants = new System.Windows.Forms.Button();
       this.SuspendLayout();
@@ -46,8 +46,9 @@
       // lblAjouterEvenement
       // 
       this.lblAjouterEvenement.AutoSize = true;
+      this.lblAjouterEvenement.Dock = System.Windows.Forms.DockStyle.Top;
       this.lblAjouterEvenement.Font = new System.Drawing.Font("JetBrains Mono NL", 20F, System.Drawing.FontStyle.Bold);
-      this.lblAjouterEvenement.Location = new System.Drawing.Point(23, 20);
+      this.lblAjouterEvenement.Location = new System.Drawing.Point(20, 20);
       this.lblAjouterEvenement.Name = "lblAjouterEvenement";
       this.lblAjouterEvenement.Size = new System.Drawing.Size(335, 36);
       this.lblAjouterEvenement.TabIndex = 5;
@@ -62,6 +63,8 @@
       // 
       // dtpEvent
       // 
+      this.dtpEvent.CustomFormat = "dd/MM/yyyy HH:mm";
+      this.dtpEvent.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
       this.dtpEvent.Location = new System.Drawing.Point(202, 141);
       this.dtpEvent.Name = "dtpEvent";
       this.dtpEvent.Size = new System.Drawing.Size(200, 20);
@@ -128,14 +131,15 @@
       this.btnAjouter.TabIndex = 16;
       this.btnAjouter.Text = "Ajouter";
       this.btnAjouter.UseVisualStyleBackColor = true;
+      this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
       // 
-      // comboBox1
+      // cmbType
       // 
-      this.comboBox1.FormattingEnabled = true;
-      this.comboBox1.Location = new System.Drawing.Point(202, 344);
-      this.comboBox1.Name = "comboBox1";
-      this.comboBox1.Size = new System.Drawing.Size(200, 21);
-      this.comboBox1.TabIndex = 17;
+      this.cmbType.FormattingEnabled = true;
+      this.cmbType.Location = new System.Drawing.Point(202, 344);
+      this.cmbType.Name = "cmbType";
+      this.cmbType.Size = new System.Drawing.Size(200, 21);
+      this.cmbType.TabIndex = 17;
       // 
       // lblType
       // 
@@ -163,10 +167,10 @@
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.Thistle;
-      this.ClientSize = new System.Drawing.Size(425, 433);
+      this.ClientSize = new System.Drawing.Size(420, 418);
       this.Controls.Add(this.btnParticipants);
       this.Controls.Add(this.lblType);
-      this.Controls.Add(this.comboBox1);
+      this.Controls.Add(this.cmbType);
       this.Controls.Add(this.btnAjouter);
       this.Controls.Add(this.cmbStatus);
       this.Controls.Add(this.lblStatus);
@@ -177,8 +181,11 @@
       this.Controls.Add(this.dtpEvent);
       this.Controls.Add(this.txtNom);
       this.Controls.Add(this.lblAjouterEvenement);
+      this.MaximizeBox = false;
+      this.MaximumSize = new System.Drawing.Size(436, 457);
+      this.MinimumSize = new System.Drawing.Size(436, 457);
       this.Name = "FrmAddEvent";
-      this.Padding = new System.Windows.Forms.Padding(20);
+      this.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
       this.Text = "FrmAddEvent";
       this.Load += new System.EventHandler(this.FrmAddEvent_Load);
       this.ResumeLayout(false);
@@ -198,8 +205,8 @@
     private System.Windows.Forms.Label lblStatus;
     private System.Windows.Forms.ComboBox cmbStatus;
     private System.Windows.Forms.Button btnAjouter;
-    private System.Windows.Forms.ComboBox comboBox1;
     private System.Windows.Forms.Label lblType;
     private System.Windows.Forms.Button btnParticipants;
+    private System.Windows.Forms.ComboBox cmbType;
   }
 }
