@@ -32,17 +32,24 @@ namespace homelogistics
 
     private void BtnParticipants_Click(object sender, EventArgs e)
     {
-      EventType eventType = (EventType)cmbType.SelectedItem;
-      createdEvent = EventFactory.CreateEvent(eventType, txtNom.Text, rtxDesc.Text, dtpEvent.Value, new List<FamilyMember>());
+      ModifyEvent();
       FrmParticipants frmParticipants = new FrmParticipants(createdEvent);
       frmParticipants.ShowDialog();
     }
 
-    private void btnAjouter_Click(object sender, EventArgs e)
+    private void BtnAjouter_Click(object sender, EventArgs e)
     {
       DialogResult result = MessageBox.Show("Voulez-vous sauvegarder cet événement?", "Add Event", MessageBoxButtons.YesNo);
       if (result == DialogResult.Yes)
       {
+        ModifyEvent();
+        EventList.GetInstance().AddEvent(createdEvent);
+        MessageBox.Show("Evénement ajouté!", "Add Event", MessageBoxButtons.OK);
+      }
+      this.Close();
+    }
+    private void ModifyEvent()
+    {
         if (createdEvent != null)
         {
           createdEvent.Title = txtNom.Text;
@@ -54,10 +61,6 @@ namespace homelogistics
         {
           createdEvent = EventFactory.CreateEvent((EventType)cmbType.SelectedItem, txtNom.Text, rtxDesc.Text, dtpEvent.Value, new List<FamilyMember>());
         }
-        EventList.GetInstance().AddEvent(createdEvent);
-        MessageBox.Show("Evénement ajouté!", "Add Event", MessageBoxButtons.OK);
-      }
-      this.Close();
     }
   }
  }

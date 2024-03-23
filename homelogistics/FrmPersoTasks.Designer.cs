@@ -29,12 +29,12 @@
     private void InitializeComponent()
     {
       this.dgvTaches = new System.Windows.Forms.DataGridView();
+      this.lblTasks = new System.Windows.Forms.Label();
+      this.btnFilter = new System.Windows.Forms.Button();
       this.num = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.lblTasks = new System.Windows.Forms.Label();
-      this.btnFilter = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.dgvTaches)).BeginInit();
       this.SuspendLayout();
       // 
@@ -58,12 +58,38 @@
       this.dgvTaches.TabIndex = 0;
       this.dgvTaches.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaches_CellClick);
       // 
+      // lblTasks
+      // 
+      this.lblTasks.AutoSize = true;
+      this.lblTasks.Font = new System.Drawing.Font("JetBrains Mono NL", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblTasks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.lblTasks.Location = new System.Drawing.Point(9, 20);
+      this.lblTasks.Name = "lblTasks";
+      this.lblTasks.Size = new System.Drawing.Size(317, 63);
+      this.lblTasks.TabIndex = 4;
+      this.lblTasks.Text = "Vos tâches";
+      this.lblTasks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.lblTasks.UseWaitCursor = true;
+      // 
+      // btnFilter
+      // 
+      this.btnFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnFilter.Font = new System.Drawing.Font("JetBrainsMono NF", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnFilter.Location = new System.Drawing.Point(360, 53);
+      this.btnFilter.Name = "btnFilter";
+      this.btnFilter.Size = new System.Drawing.Size(154, 23);
+      this.btnFilter.TabIndex = 5;
+      this.btnFilter.Text = "Toutes les tâches";
+      this.btnFilter.UseVisualStyleBackColor = true;
+      this.btnFilter.Click += new System.EventHandler(this.btnAll_Click);
+      // 
       // num
       // 
       this.num.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
       this.num.HeaderText = "N°";
       this.num.Name = "num";
       this.num.ReadOnly = true;
+      this.num.Visible = false;
       this.num.Width = 46;
       // 
       // nom
@@ -85,31 +111,6 @@
       this.status.HeaderText = "Status";
       this.status.Name = "status";
       this.status.ReadOnly = true;
-      // 
-      // lblVosTaches
-      // 
-      this.lblTasks.AutoSize = true;
-      this.lblTasks.Font = new System.Drawing.Font("JetBrains Mono NL", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblTasks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      this.lblTasks.Location = new System.Drawing.Point(9, 20);
-      this.lblTasks.Name = "lblVosTaches";
-      this.lblTasks.Size = new System.Drawing.Size(317, 63);
-      this.lblTasks.TabIndex = 4;
-      this.lblTasks.Text = "Vos tâches";
-      this.lblTasks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      this.lblTasks.UseWaitCursor = true;
-      // 
-      // btnAll
-      // 
-      this.btnFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnFilter.Font = new System.Drawing.Font("JetBrainsMono NF", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.btnFilter.Location = new System.Drawing.Point(360, 53);
-      this.btnFilter.Name = "btnAll";
-      this.btnFilter.Size = new System.Drawing.Size(154, 23);
-      this.btnFilter.TabIndex = 5;
-      this.btnFilter.Text = "Toutes les tâches";
-      this.btnFilter.UseVisualStyleBackColor = true;
-      this.btnFilter.Click += new System.EventHandler(this.btnAll_Click);
       // 
       // FrmPersoTasks
       // 

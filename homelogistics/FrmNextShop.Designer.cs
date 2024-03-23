@@ -29,13 +29,13 @@
     private void InitializeComponent()
     {
       this.dgvTaches = new System.Windows.Forms.DataGridView();
-      this.num = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.Acheté = new System.Windows.Forms.DataGridViewCheckBoxColumn();
       this.lblCourses = new System.Windows.Forms.Label();
       this.btnFilter = new System.Windows.Forms.Button();
       this.lblTextDate = new System.Windows.Forms.Label();
       this.btnDone = new System.Windows.Forms.Button();
+      this.num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.Acheté = new System.Windows.Forms.DataGridViewCheckBoxColumn();
       ((System.ComponentModel.ISupportInitialize)(this.dgvTaches)).BeginInit();
       this.SuspendLayout();
       // 
@@ -56,33 +56,8 @@
       this.dgvTaches.ReadOnly = true;
       this.dgvTaches.Size = new System.Drawing.Size(556, 525);
       this.dgvTaches.TabIndex = 0;
-      this.dgvTaches.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaches_CellClick);
-      this.dgvTaches.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaches_CellContentClick);
-      // 
-      // num
-      // 
-      this.num.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-      this.num.HeaderText = "N°";
-      this.num.Name = "num";
-      this.num.ReadOnly = true;
-      this.num.Width = 46;
-      // 
-      // nom
-      // 
-      this.nom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-      this.nom.HeaderText = "Nom";
-      this.nom.Name = "nom";
-      this.nom.ReadOnly = true;
-      // 
-      // Acheté
-      // 
-      this.Acheté.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-      this.Acheté.HeaderText = "Acheté?";
-      this.Acheté.Name = "Acheté";
-      this.Acheté.ReadOnly = true;
-      this.Acheté.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-      this.Acheté.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-      this.Acheté.Width = 81;
+      this.dgvTaches.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTaches_CellClick);
+      this.dgvTaches.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTaches_CellContentClick);
       // 
       // lblCourses
       // 
@@ -104,7 +79,7 @@
       this.btnFilter.TabIndex = 5;
       this.btnFilter.Text = "semaine";
       this.btnFilter.UseVisualStyleBackColor = true;
-      this.btnFilter.Click += new System.EventHandler(this.btnAll_Click);
+      this.btnFilter.Click += new System.EventHandler(this.BtnAll_Click);
       // 
       // lblTextDate
       // 
@@ -127,6 +102,32 @@
       this.btnDone.Text = "J\'ai fais les courses!";
       this.btnDone.UseVisualStyleBackColor = true;
       this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
+      // 
+      // num
+      // 
+      this.num.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+      this.num.HeaderText = "N°";
+      this.num.Name = "num";
+      this.num.ReadOnly = true;
+      this.num.Visible = false;
+      this.num.Width = 46;
+      // 
+      // nom
+      // 
+      this.nom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+      this.nom.HeaderText = "Nom";
+      this.nom.Name = "nom";
+      this.nom.ReadOnly = true;
+      // 
+      // Acheté
+      // 
+      this.Acheté.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+      this.Acheté.HeaderText = "Acheté?";
+      this.Acheté.Name = "Acheté";
+      this.Acheté.ReadOnly = true;
+      this.Acheté.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+      this.Acheté.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+      this.Acheté.Width = 81;
       // 
       // FrmNextShop
       // 
@@ -157,10 +158,10 @@
     private System.Windows.Forms.DataGridView dgvTaches;
     private System.Windows.Forms.Label lblCourses;
     private System.Windows.Forms.Button btnFilter;
+    private System.Windows.Forms.Label lblTextDate;
+    private System.Windows.Forms.Button btnDone;
     private System.Windows.Forms.DataGridViewTextBoxColumn num;
     private System.Windows.Forms.DataGridViewTextBoxColumn nom;
     private System.Windows.Forms.DataGridViewCheckBoxColumn Acheté;
-    private System.Windows.Forms.Label lblTextDate;
-    private System.Windows.Forms.Button btnDone;
   }
 }

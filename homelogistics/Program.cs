@@ -19,7 +19,12 @@ namespace homelogistics
       EventList.GetInstance().LoadEvents();
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(FrmEvents.getInstance());
+      FrmLogin frmLogin = new FrmLogin();
+      if (frmLogin.ShowDialog() == DialogResult.OK)
+      {
+        Application.Run(FrmEvents.getInstance());
+      }
+      Application.Exit();
     }
   }
 }

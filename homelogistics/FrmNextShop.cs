@@ -45,13 +45,13 @@ namespace homelogistics
       }
     }
 
-    private void btnAll_Click(object sender, EventArgs e)
+    private void BtnAll_Click(object sender, EventArgs e)
     {
       showAll = !showAll;
       FrmNextShop_Load(sender, e);
     }
 
-    private void dgvTaches_CellClick(object sender, DataGridViewCellEventArgs e)
+    private void DgvTaches_CellClick(object sender, DataGridViewCellEventArgs e)
     {
       if (e.RowIndex == -1) return;
       if (e.ColumnIndex == 1)
@@ -65,20 +65,20 @@ namespace homelogistics
       }
     }
 
-    private void dgvTaches_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    private void DgvTaches_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
-      if (e.RowIndex == -1) return;
-      if (e.ColumnIndex == 2)
+      if (e.ColumnIndex == 2 && e.RowIndex >= 0)
       {
-        if (dgvTaches.Rows[e.RowIndex].Cells[2].Value == null)
+        DataGridViewCell cell = dgvTaches.Rows[e.RowIndex].Cells[e.ColumnIndex];
+        if (cell.Value == null)
         {
-          dgvTaches.Rows[e.RowIndex].Cells[2].Value = true;
+          cell.Value = true;
         }
         else
         {
-          dgvTaches.Rows[e.RowIndex].Cells[2].Value = !(bool)dgvTaches.Rows[e.RowIndex].Cells[2].Value;
+          cell.Value = !(bool)cell.Value;
         }
-      } 
+      }
     }
 
     private void btnDone_Click(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace homelogistics
       {
         if (row.Cells[2].Value != null && (bool)row.Cells[2].Value)
         {
-          shoppingList[row.Index].Status = EventStatus.Done;
+          shoppingList[(int)row.Cells[0].Value].Status = EventStatus.Done;
         }
       }
       dgvTaches.Rows.Clear();

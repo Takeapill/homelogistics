@@ -29,11 +29,12 @@
     private void InitializeComponent()
     {
       this.dgvParticipants = new System.Windows.Forms.DataGridView();
-      this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.participation = new System.Windows.Forms.DataGridViewCheckBoxColumn();
       this.btnSave = new System.Windows.Forms.Button();
       this.panel1 = new System.Windows.Forms.Panel();
       this.btnCancel = new System.Windows.Forms.Button();
+      this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.participation = new System.Windows.Forms.DataGridViewCheckBoxColumn();
       ((System.ComponentModel.ISupportInitialize)(this.dgvParticipants)).BeginInit();
       this.panel1.SuspendLayout();
       this.SuspendLayout();
@@ -47,6 +48,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
       this.dgvParticipants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
       this.dgvParticipants.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.Nom,
             this.participation});
       this.dgvParticipants.Location = new System.Drawing.Point(20, 20);
@@ -55,21 +57,6 @@
       this.dgvParticipants.Size = new System.Drawing.Size(320, 402);
       this.dgvParticipants.TabIndex = 0;
       this.dgvParticipants.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvParticipants_CellContentClick);
-      // 
-      // Nom
-      // 
-      this.Nom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-      this.Nom.HeaderText = "Nom";
-      this.Nom.Name = "Nom";
-      this.Nom.ReadOnly = true;
-      // 
-      // participation
-      // 
-      this.participation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-      this.participation.HeaderText = "Participe?";
-      this.participation.Name = "participation";
-      this.participation.ReadOnly = true;
-      this.participation.Width = 83;
       // 
       // btnSave
       // 
@@ -103,6 +90,30 @@
       this.btnCancel.UseVisualStyleBackColor = true;
       this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
       // 
+      // ID
+      // 
+      this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+      this.ID.HeaderText = "ID";
+      this.ID.Name = "ID";
+      this.ID.ReadOnly = true;
+      this.ID.Visible = false;
+      this.ID.Width = 46;
+      // 
+      // Nom
+      // 
+      this.Nom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+      this.Nom.HeaderText = "Nom";
+      this.Nom.Name = "Nom";
+      this.Nom.ReadOnly = true;
+      // 
+      // participation
+      // 
+      this.participation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+      this.participation.HeaderText = "Participe?";
+      this.participation.Name = "participation";
+      this.participation.ReadOnly = true;
+      this.participation.Width = 83;
+      // 
       // FrmParticipants
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -127,10 +138,11 @@
     #endregion
 
     private System.Windows.Forms.DataGridView dgvParticipants;
-    private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
-    private System.Windows.Forms.DataGridViewCheckBoxColumn participation;
     private System.Windows.Forms.Button btnSave;
     private System.Windows.Forms.Panel panel1;
     private System.Windows.Forms.Button btnCancel;
+    private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+    private System.Windows.Forms.DataGridViewTextBoxColumn Nom;
+    private System.Windows.Forms.DataGridViewCheckBoxColumn participation;
   }
 }

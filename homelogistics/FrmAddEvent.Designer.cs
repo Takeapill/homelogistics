@@ -131,7 +131,7 @@
       this.btnAjouter.TabIndex = 16;
       this.btnAjouter.Text = "Ajouter";
       this.btnAjouter.UseVisualStyleBackColor = true;
-      this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
+      this.btnAjouter.Click += new System.EventHandler(this.BtnAjouter_Click);
       // 
       // cmbType
       // 
@@ -185,7 +185,7 @@
       this.MaximumSize = new System.Drawing.Size(436, 457);
       this.MinimumSize = new System.Drawing.Size(436, 457);
       this.Name = "FrmAddEvent";
-      this.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
+      this.Padding = new System.Windows.Forms.Padding(20);
       this.Text = "FrmAddEvent";
       this.Load += new System.EventHandler(this.FrmAddEvent_Load);
       this.ResumeLayout(false);

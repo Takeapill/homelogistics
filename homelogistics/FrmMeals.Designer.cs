@@ -29,12 +29,12 @@
     private void InitializeComponent()
     {
       this.dgvTaches = new System.Windows.Forms.DataGridView();
+      this.lblMeals = new System.Windows.Forms.Label();
+      this.btnFilter = new System.Windows.Forms.Button();
       this.num = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.lblMeals = new System.Windows.Forms.Label();
-      this.btnFilter = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.dgvTaches)).BeginInit();
       this.SuspendLayout();
       // 
@@ -58,12 +58,34 @@
       this.dgvTaches.TabIndex = 0;
       this.dgvTaches.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaches_CellClick);
       // 
+      // lblMeals
+      // 
+      this.lblMeals.AutoSize = true;
+      this.lblMeals.Font = new System.Drawing.Font("JetBrains Mono NL", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblMeals.Location = new System.Drawing.Point(12, 20);
+      this.lblMeals.Name = "lblMeals";
+      this.lblMeals.Size = new System.Drawing.Size(380, 43);
+      this.lblMeals.TabIndex = 4;
+      this.lblMeals.Text = "Repas de la semaine";
+      // 
+      // btnFilter
+      // 
+      this.btnFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.btnFilter.Location = new System.Drawing.Point(422, 38);
+      this.btnFilter.Name = "btnFilter";
+      this.btnFilter.Size = new System.Drawing.Size(168, 23);
+      this.btnFilter.TabIndex = 5;
+      this.btnFilter.Text = "Voir tous les repas";
+      this.btnFilter.UseVisualStyleBackColor = true;
+      this.btnFilter.Click += new System.EventHandler(this.btnAll_Click);
+      // 
       // num
       // 
       this.num.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
       this.num.HeaderText = "N°";
       this.num.Name = "num";
       this.num.ReadOnly = true;
+      this.num.Visible = false;
       this.num.Width = 46;
       // 
       // nom
@@ -85,27 +107,6 @@
       this.status.HeaderText = "Status";
       this.status.Name = "status";
       this.status.ReadOnly = true;
-      // 
-      // lblMeals
-      // 
-      this.lblMeals.AutoSize = true;
-      this.lblMeals.Font = new System.Drawing.Font("JetBrains Mono NL", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblMeals.Location = new System.Drawing.Point(12, 20);
-      this.lblMeals.Name = "lblMeals";
-      this.lblMeals.Size = new System.Drawing.Size(380, 43);
-      this.lblMeals.TabIndex = 4;
-      this.lblMeals.Text = "Repas de la semaine";
-      // 
-      // btnAll
-      // 
-      this.btnFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnFilter.Location = new System.Drawing.Point(422, 38);
-      this.btnFilter.Name = "btnAll";
-      this.btnFilter.Size = new System.Drawing.Size(168, 23);
-      this.btnFilter.TabIndex = 5;
-      this.btnFilter.Text = "Voir tous les repas";
-      this.btnFilter.UseVisualStyleBackColor = true;
-      this.btnFilter.Click += new System.EventHandler(this.btnAll_Click);
       // 
       // FrmMeals
       // 

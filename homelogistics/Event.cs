@@ -201,7 +201,7 @@ namespace homelogistics
       {
         foreach (FamilyMember member in Family.GetInstance().Members)
         {
-          if (member.id == id)
+          if (member.ID == id)
           {
             return Events.Where(e => e.participants.Contains(member)).ToList();
           }
@@ -220,7 +220,7 @@ namespace homelogistics
     }
     internal List<Event> GetCurrentUserEvents()
     {
-      return GetUserEvents(Family.GetInstance().CurrentUser.id);
+      return GetUserEvents(Family.GetInstance().CurrentUser.ID);
     }
     internal List<Event> GetCurrentUserEventsByDate(DateTime date)
     {
