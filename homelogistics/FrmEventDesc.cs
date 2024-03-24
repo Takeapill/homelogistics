@@ -12,25 +12,26 @@ namespace homelogistics
 {
   internal partial class FrmEventDesc : Form
   {
-    private readonly int currId;
+    private Event ev;
     internal FrmEventDesc(Event e)
     {
       InitializeComponent();
-      string unitQty = " ";
-      if (e is ShopItem item) 
-      {
-        unitQty = item.UnitQty[0] + item.UnitQty[1];
-      };
 
-      LoadData(e.Title, e.Description, e.Date, unitQty);
-      currId = e.ID;
+      ev = e;
     }
 
     private void FrmEventDesc_Load(object sender, EventArgs e)
     {
+      string unitQty = " ";
+      if (ev is ShopItem item) 
+      {
+        unitQty = item.UnitQty[0] + item.UnitQty[1];
+      };
+
+      LoadData(ev.Title, ev.Description, ev.Date, ev.Status, unitQty);
     }
 
-    private void LoadData(string name, string desc, DateTime dateTime, string unitQty)
+    private void LoadData(string name, string desc, DateTime dateTime, EventStatus status, string unitQty)
     {
       txtNom.Text = " " + name + " " + unitQty;
       rtxDesc.Text = desc;
@@ -39,6 +40,7 @@ namespace homelogistics
       {
         cmbStatus.Items.Add(stauts);
       }
+      cmbStatus.SelectedItem = status.ToString();
     }
 
     private void BtnNoSave_Click(object sender, EventArgs e)
@@ -52,23 +54,23 @@ namespace homelogistics
       DialogResult result = MessageBox.Show("Etes-vous sûr de vouloir modifier les données?", "Sauvegarde", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
       if (result == DialogResult.OK)
       {
-        ModifyData(currId);
+        ModifyData();
+        FrmEventDesc_Load(sender, e);
         this.Close();
       }
     }
 
-    private void ModifyData(int id)
+    private void ModifyData()
     {
-      Event e = EventList.GetInstance().Events.Find(x => x.ID == id);
-      e.Title = txtNom.Text;
-      e.Description = rtxDesc.Text;
-      e.Date = dtpDate.Value;
+      ev.Title = txtNom.Text;
+      ev.Description = rtxDesc.Text;
+      ev.Date = dtpDate.Value;
+      ev.Status = (EventStatus)Enum.Parse(typeof(EventStatus), cmbStatus.SelectedItem.ToString());
     }
 
     private void BtnParticipants_Click(object sender, EventArgs e)
     {
-      Event @event = EventList.GetInstance().Events.Find(x => x.ID == currId);
-      FrmParticipants frmParticipants = new FrmParticipants(@event);
+      FrmParticipants frmParticipants = new FrmParticipants(ev);
       frmParticipants.ShowDialog();
     }
   }

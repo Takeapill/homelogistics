@@ -19,7 +19,7 @@ namespace homelogistics
 
     private void Login_Load(object sender, EventArgs e)
     {
-
+      btnLogin.Enabled = false;
     }
 
     private void btnLogin_Click(object sender, EventArgs e)
@@ -36,6 +36,28 @@ namespace homelogistics
         MessageBox.Show("Invalid username or password");
         this.DialogResult = DialogResult.Cancel;
       }
+    }
+
+    private void EnableLoginButton()
+    {
+      if (txtUsername.Text.Length > 0 && txtPassword.Text.Length > 0)
+      {
+        btnLogin.Enabled = true;
+      }
+      else
+      {
+        btnLogin.Enabled = false;
+      }
+    }
+
+    private void TxtUsername_TextChanged(object sender, EventArgs e)
+    {
+      EnableLoginButton();
+    }
+
+    private void TxtPassword_TextChanged(object sender, EventArgs e)
+    {
+      EnableLoginButton();
     }
   }
 }

@@ -85,9 +85,10 @@ namespace homelogistics
     {
       foreach (DataGridViewRow row in dgvTaches.Rows)
       {
+        int idx = row.Index;
         if (row.Cells[2].Value != null && (bool)row.Cells[2].Value)
         {
-          shoppingList[(int)row.Cells[0].Value].Status = EventStatus.Done;
+          shoppingList[idx].Status = EventStatus.Done;
         }
       }
       dgvTaches.Rows.Clear();

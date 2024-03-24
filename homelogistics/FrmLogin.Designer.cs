@@ -53,7 +53,7 @@
       this.lblUsername.Location = new System.Drawing.Point(12, 60);
       this.lblUsername.Name = "lblUsername";
       this.lblUsername.Size = new System.Drawing.Size(133, 14);
-      this.lblUsername.TabIndex = 1;
+      this.lblUsername.TabIndex = 0;
       this.lblUsername.Text = "Nom d\'utilisateur:";
       // 
       // lblPassword
@@ -62,7 +62,7 @@
       this.lblPassword.Location = new System.Drawing.Point(12, 114);
       this.lblPassword.Name = "lblPassword";
       this.lblPassword.Size = new System.Drawing.Size(63, 14);
-      this.lblPassword.TabIndex = 2;
+      this.lblPassword.TabIndex = 0;
       this.lblPassword.Text = "Password";
       // 
       // btnLogin
@@ -80,7 +80,8 @@
       this.txtUsername.Location = new System.Drawing.Point(15, 77);
       this.txtUsername.Name = "txtUsername";
       this.txtUsername.Size = new System.Drawing.Size(235, 22);
-      this.txtUsername.TabIndex = 4;
+      this.txtUsername.TabIndex = 1;
+      this.txtUsername.TextChanged += new System.EventHandler(this.TxtUsername_TextChanged);
       // 
       // txtPassword
       // 
@@ -88,10 +89,12 @@
       this.txtPassword.Name = "txtPassword";
       this.txtPassword.PasswordChar = '*';
       this.txtPassword.Size = new System.Drawing.Size(235, 22);
-      this.txtPassword.TabIndex = 5;
+      this.txtPassword.TabIndex = 2;
+      this.txtPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
       // 
       // FrmLogin
       // 
+      this.AcceptButton = this.btnLogin;
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.Thistle;
@@ -104,6 +107,8 @@
       this.Controls.Add(this.lblTitle);
       this.Font = new System.Drawing.Font("JetBrains Mono NL", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+      this.MaximizeBox = false;
+      this.MinimizeBox = false;
       this.Name = "FrmLogin";
       this.Padding = new System.Windows.Forms.Padding(10);
       this.Text = "Login";
