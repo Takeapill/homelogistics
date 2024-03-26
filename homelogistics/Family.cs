@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using BCrypt.Net;
 
 namespace homelogistics
 {
@@ -75,29 +76,17 @@ namespace homelogistics
 
     private string GenerateSalt()
     {
-      byte[] saltBytes = new byte[16]; // Adjust size as per your requirements
-      using (var rng = new RNGCryptoServiceProvider())
-      {
-        rng.GetBytes(saltBytes);
-      }
-      return Convert.ToBase64String(saltBytes);
+      return BCrypt.Net.BCrypt.GenerateSalt(12);
     }
 
     private string HashPassword(string password, string salt)
     {
-      byte[] saltBytes = Convert.FromBase64String(salt);
-
-      using (var pbkdf2 = new Rfc2898DeriveBytes(password, saltBytes, 10000)) // Adjust iteration count as per your requirements
-      {
-        byte[] hashBytes = pbkdf2.GetBytes(20); // 20 bytes for SHA-1
-        return Convert.ToBase64String(hashBytes);
-      }
+      return BCrypt.Net.BCrypt.HashPassword(password, salt);
     }
 
     public bool VerifyPassword(string password)
     {
-      string hashedPassword = HashPassword(password, this.Salt);
-      return hashedPassword == this.PasswordHash;
+      return BCrypt.Net.BCrypt.Verify(password, PasswordHash);
     }
   }
 }
